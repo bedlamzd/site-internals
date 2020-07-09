@@ -9,15 +9,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout internals
         uses: actions/checkout@v2
         with:
-          persist-credentials: false
-          fetch-depth: 0
+          path: internals
+
+      - name: Checkout site
+        uses: actions/checkout@v2
+        with:
+          path: bedsite
 
       - name: test
         run: |
-          echo pwd
+          pwd
       - name: Setup python
         uses: actions/setup-python@v2
         with:
