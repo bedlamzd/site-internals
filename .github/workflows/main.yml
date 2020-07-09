@@ -1,4 +1,4 @@
-name: CI
+name: Site publishing
 
 on:
   push:
@@ -35,6 +35,14 @@ jobs:
         run: |
           pelican content -o ../bedsite/ -s pelicanconf.py
 
+      - name: Commit changes
+        working-directory: ./bedsite
+        run: |
+          git config --local user.email "bedlamzd@gmail.com"
+          git config --local user.name "Github Action"
+          git add .
+          git commit -m "Internal changes" -a
+
       - name: Git test
         working-directory: ./bedsite
         run: |
@@ -45,4 +53,4 @@ jobs:
         with:
           github_token: ${{secrets.TOKEN}}
           repository: bedlamzd.github.io
-          directory: ../bedsite/
+          directory: ./bedsite
