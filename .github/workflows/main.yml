@@ -52,5 +52,5 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{secrets.TOKEN}}
-          repository: bedlamzd.github.io
+          repository: bedlamzd/bedlamzd.github.io
           directory: ./bedsite
