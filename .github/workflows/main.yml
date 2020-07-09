@@ -43,11 +43,6 @@ jobs:
           git add .
           git commit -m "Internal changes" -a
 
-      - name: Git test
-        working-directory: ./bedsite
-        run: |
-          git status
-
       - name: Push site
         uses: ad-m/github-push-action@v0.6.0
         with:
