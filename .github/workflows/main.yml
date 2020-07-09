@@ -8,11 +8,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Set locale
-        run: |
-          locale -a
-
       - name: Checkout internals
         uses: actions/checkout@v2
         with:
