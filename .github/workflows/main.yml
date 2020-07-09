@@ -19,6 +19,10 @@ jobs:
         with:
           path: bedsite
 
+      - name: Go to internals
+        run: |
+          cd internals
+
       - name: test
         run: |
           pwd
@@ -35,11 +39,15 @@ jobs:
 
       - name: Generate content
         run: |
-          pelican content -s pelicanconf.py
+          pelican content -o ../bedsite/ -s pelicanconf.py
+
+      - name: Git test
+        run: |
+          git status
 
       - name: Push site
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{secrets.TOKEN}}
-          repository: 'bedlamzd.github.io'
-          directory: 'output'
+          repository: bedlamzd.github.io
+          directory: ../bedsite/
