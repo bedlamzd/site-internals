@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Set locale
         run: |
-          LC_ALL=ru_RU.UTF-8
+          locale -a
 
       - name: Checkout internals
         uses: actions/checkout@v2
