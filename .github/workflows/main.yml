@@ -19,6 +19,7 @@ jobs:
       - name: Checkout site
         uses: actions/checkout@v2
         with:
+          repository: bedlamzd/bedlamzd.github.io
           persist-credentials: false
           fetch-depth: 0
           path: bedsite
