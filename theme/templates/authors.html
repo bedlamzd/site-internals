@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid article">
+    <ul>
+        {% for article in articles if article|has_tag('member') %}
+            <li>{{article.person}}</li>
+            <img src="{{SITEURL}}/img/{{article.relative_source_path | strip_ext}}/cover.jpg" alt="{{article.person}}">
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
