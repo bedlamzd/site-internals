@@ -12,11 +12,15 @@ jobs:
       - name: Checkout internals
         uses: actions/checkout@v2
         with:
+          persist-credentials: false
+          fetch-depth: 0
           path: internals
 
       - name: Checkout site
         uses: actions/checkout@v2
         with:
+          persist-credentials: false
+          fetch-depth: 0
           path: bedsite
 
       - name: Setup python
