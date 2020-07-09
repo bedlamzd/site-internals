@@ -36,7 +36,7 @@ jobs:
           pelican content -o ../bedsite/ -s pelicanconf.py
 
       - name: Git test
-        working-directory: ../bedsite
+        working-directory: ./bedsite
         run: |
           git status
 
