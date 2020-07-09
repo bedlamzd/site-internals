@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set locale
+        run: |
+          LC_ALL=ru_RU.UTF-8
+
       - name: Checkout internals
         uses: actions/checkout@v2
         with:

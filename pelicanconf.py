@@ -27,11 +27,11 @@ DEFAULT_THUMB = 'default_thumb.png'
 
 ARTICLE_ORDER_BY = 'reversed-date'
 DEFAULT_DATE = 'fs'
-# DEFAULT_DATE_FORMAT = '%-d %B %Y'
-# DATE_FORMATS = {
-#     'ru': ('ru_RU', '%-d %B %Y'),
-#     'en': ('en_US', '%-d %B %Y')
-# }
+DEFAULT_DATE_FORMAT = '%-d %B %Y'
+DATE_FORMATS = {
+    'ru': ('ru_RU', '%-d %B %Y'),
+    'en': ('en_US', '%-d %B %Y')
+}
 
 MENUITEMS = (
     # ('ГЛАВНАЯ', ''),
