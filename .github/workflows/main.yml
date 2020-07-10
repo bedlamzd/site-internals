@@ -35,6 +35,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Delete old files
+        working-directory: ./bedsite
+        run: |
+          rm -rfv *
+
       - name: Generate content
         working-directory: ./internals
         run: |
