@@ -1,8 +1,15 @@
-title: bedlamzd site
-date: 10-2-2020
-template: main
-url: 
-save_as: ./index.html
+---
+title: About
+icon: fas fa-info
+order: 4
+
+# The About page
+# v2.0
+# https://github.com/cotes2020/jekyll-theme-chirpy
+# © 2017-2019 Cotes Chung
+# MIT License
+---
+
 
 Приветствую, меня зовут Максим! Я бакалавр в области робототехники и сейчас учусь в
 магистратуре Университета ИТМО. Я интересуюсь множеством вещей, в частности программированием, электроникой и механикой.

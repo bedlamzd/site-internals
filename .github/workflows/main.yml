@@ -1,61 +1,50 @@
-name: Site publishing
+name: Deploy to Hosting
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master
 
 jobs:
-  build:
+  site-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout internals
+      - name: Setup repo
         uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          persist-credentials: false
-          fetch-depth: 0
-          path: internals
+          ruby-version: 2.6
 
-      - name: Checkout site
-        uses: actions/checkout@v2
-        with:
-          repository: bedlamzd/bedlamzd.github.io
-          persist-credentials: false
-          fetch-depth: 0
-          path: bedsite
-
-      - name: Setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-
-      - name: Install dependencies
-        working-directory: ./internals
+      - name: Install dependencies and build
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          bundle install
+          bundle update
+          bundle exec jekyll build
 
-      - name: Delete old files
-        working-directory: ./bedsite
+      - name: Configure SSH
         run: |
-          rm -rfv *
+          mkdir -p ~/.ssh
+          echo "${{secrets.HOSTING_SSH_KEY}}" > ~/.ssh/hosting.key
+          chmod 600 ~/.ssh/hosting.key
+          cat >> ~/.ssh/config << END
+          Host hosting
+            HostName "${{secrets.HOSTING_HOST}}"
+            User "${{secrets.HOSTING_USER}}"
+            IdentityFile ~/.ssh/hosting.key
+            StrictHostKeyChecking no
+          END
 
-      - name: Generate content
-        working-directory: ./internals
+      - name: Delete old version
         run: |
-          pelican content -o ../bedsite/ -s pelicanconf.py
+          ssh hosting << END
+            shopt -s extglob
+            rm -rfv !(\.*)
+            shopt -u extglob
+          END
 
-      - name: Commit changes
-        working-directory: ./bedsite
+      - name: Publish site
         run: |
-          git config --local user.email "bedlamzd@gmail.com"
-          git config --local user.name "Github Action"
-          git add .
-          git commit -m "Internal changes" -a
+          scp -r _site/* hosting:./
 
-      - name: Push site
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{secrets.TOKEN}}
-          repository: bedlamzd/bedlamzd.github.io
-          directory: ./bedsite
