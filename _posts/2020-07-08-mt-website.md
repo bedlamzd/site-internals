@@ -1,7 +1,8 @@
-title: MT.Website
-date: 07-08-2020
-description: "Backend" сайта лаборатории
-template: project
+---
+title: Сайт MT.lab
+date: 2020-07-08
+tags: [MT.lab, Web]
+---
 
 ![Лого MT.lab]({static}/img/mt-website/logo.png)
 
@@ -21,7 +22,8 @@ template: project
 используется язык [Jinja2](https://jinja.palletsprojects.com/), похожий на Django template language. Таким образом можно
 сделать например отображение активной вкладки из меню навигации.
 
-```jinja2
+{% raw %}
+```jinja
 {% for title, link in MENUITEMS %}
     {% set full_link = link | format_siteurl %}
     {% set curr_link = output_file.replace('index.html', '') | format_siteurl %}
@@ -30,6 +32,7 @@ template: project
     </li>
 {% endfor %}
 ```
+{% endraw %}
 
 Здесь фильтр formal_siteurl из плагина [htmlsanity](https://mcss.mosra.cz/plugins/htmlsanity/) используется чтобы не
 писать неудобное `SITEURL + '/'`. Из-за того что многие страницы лежат по пути `path/to/page/index.html`, чтобы можно было
