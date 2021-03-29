@@ -54,9 +54,14 @@ layout: page
     </h1>
 
     <div class="post-content">
+
+      {% if post.image %}
+        <img src="{{ post.image }}" class="preview-img" alt="Preview Image">
+      {% endif %}
+
       <p>
         {% include no-linenos.html content=post.content %}
-        {{ content | markdownify | strip_html | truncate: 200 }}
+        {{ post.excerpt | markdownify | truncatewords: 200 }}
       </p>
     </div>
 

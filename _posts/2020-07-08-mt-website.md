@@ -4,10 +4,12 @@ date: 2020-07-08
 tags: [MT.lab, Web]
 ---
 
-![Лого MT.lab]({static}/img/mt-website/logo.png)
+![Лого MT.lab](/assets/img/mt-website/logo.png){: style="background-color: white" }
 
 Для лаборатории [MT.lab](https://mtlab.su/) на основе подготовленных стилей сделал шаблоны и автоматическую публикацию
 сайта с помощью github actions.
+
+<!--cut!-->
 
 Сайт для простоты и легковестности решено было сделать статическим. Так как я больше всего знаком с Python, то был выбран
 генератор [Pelican](https://blog.getpelican.com/). Он умеет генерировать из reStructuredText и Markdown файлов страницы

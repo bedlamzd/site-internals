@@ -35,13 +35,16 @@
       margin-top: 0.6rem;
       margin-bottom: 0.6rem;
       color: var(--post-list-text-color);
+      .preview-img {
+        margin-top: 0;
+        margin-bottom: 2.5rem;
+        max-height: 30rem;
+        @include align-center;
+      }
       > p {
         /* Make preview shorter on the homepage */
         margin: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
       }
     }
