@@ -13,7 +13,7 @@ tags: [MT.lab, Web]
 генератор [Pelican](https://blog.getpelican.com/). Он умеет генерировать из reStructuredText и Markdown файлов страницы
 по заданным шаблонам. 
 
-![Внешний вид сайта]({static}/img/mt-website/screenshot1.png)
+![Внешний вид сайта](/assets/img/mt-website/screenshot1.png)
 *Внешний вид сайта*
 
 Антон Мацуганов, участник лаборатории, подготовил "front" для сайта - целиком внешний вид и стиль сайта 
