@@ -2,6 +2,7 @@
 title: Сайт MT.lab
 date: 2020-07-08
 tags: [MT.lab, Web]
+categories: [MT.lab]
 ---
 
 ![Лого MT.lab](/assets/img/mt-website/logo.png){: style="background-color: white" }
