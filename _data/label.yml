@@ -1,0 +1,20 @@
+# The label text of site.
+#  v2.0
+#  https://github.com/cotes2020/jekyll-theme-chirpy
+# © 2017-2019 Cotes Chung
+# MIT Licensed
+
+panel:
+  lastmod: Последнее обновление
+  trending_tags: Популярные тэги
+  toc: Содержание
+
+post:
+  relate_posts: Что почитать
+  button:
+    next: Новее
+    previous: Старше
+
+search_hint: Поиск   # text show on search bar
+
+pin_prompt: Закреплено   # pinned prompt

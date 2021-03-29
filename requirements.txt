@@ -1,3 +1,0 @@
-Pelican[Markdown]
-Pygments
-pelican-alias
